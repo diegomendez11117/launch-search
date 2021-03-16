@@ -18,9 +18,9 @@ window.addEventListener('load', function () {
   let form = document.getElementById('searchForm');  
   form.addEventListener('submit', function (event) {
     const search = document.getElementById('q');
-    debugger;
     const selectedEngine = document.querySelector('input[name=engine]:checked');
-    if (search.value === '' || selectedEngine.value === '') {
+    
+    if (search.value === '' || selectedEngine.value === null) {      
       alert('Select an engine and type something in the input search');
       preventDefault();
     } else {
