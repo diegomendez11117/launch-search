@@ -12,10 +12,13 @@ function setSearchEngine() {
 
   form.setAttribute('action', action);
 }
-window.addEventListener('load', function () {
-  let button = document.getElementById('submit');
-  button.addEventListener('click', function (event) {
+window.addEventListener('load', function () { 
+
+  
+  let form = document.getElementById('searchForm');  
+  form.addEventListener('submit', function (event) {
     const search = document.getElementById('q');
+    debugger;
     const selectedEngine = document.querySelector('input[name=engine]:checked');
     if (search.value === '' || selectedEngine.value === '') {
       alert('Select an engine and type something in the input search');
@@ -25,4 +28,5 @@ window.addEventListener('load', function () {
       form.addEventListener('submit', setSearchEngine);
     }
   });
+
 });
