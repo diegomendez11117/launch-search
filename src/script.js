@@ -12,16 +12,28 @@ function setSearchEngine() {
 
   form.setAttribute('action', action);
 }
-window.addEventListener('load', function () { 
-
+window.addEventListener('load', function () {
+  
+  let button = document.getElementById('submit');
+  button.addEventListener('click', function (event) {
+    const search = document.getElementById('q');
+    const selectedEngine = document.querySelector('input[name=engine]:checked');
+    
+    if (search.value === '' || selectedEngine.value === null) {
+      alert('Select an engine and type something in the input search');
+      preventDefault();
+    } else {
+      const form = document.getElementById('searchForm');
+      form.addEventListener('submit', setSearchEngine);
+    }
+  });
   
   let form = document.getElementById('searchForm');  
   form.addEventListener('submit', function (event) {
     const search = document.getElementById('q');
+    debugger;
     const selectedEngine = document.querySelector('input[name=engine]:checked');
-    
-    if (search.value === '' || selectedEngine.value === null) {      
-      alert('Select an engine and type something in the input search');
+    if (search.value === '' || selectedEngine.value === '') {      
       preventDefault();
     } else {
       const form = document.getElementById('searchForm');
